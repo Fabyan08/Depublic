@@ -12,8 +12,8 @@ export default {
       },
       colors: {
         primary: "#9B51E0",
-        dongker: "#3B8DFF",
-        varian: "#959394",
+        second: "#FDF9F0",
+        third: "#C4C4C4",
       },
     },
   },
