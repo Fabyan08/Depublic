@@ -1,8 +1,6 @@
-// import { useState } from "react";
-// import Swiper core and required modules
-import Nav from "./Components/Nav";
+import Nav from "../Components/Nav";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-
+import Footer from "../Components/Footer";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -14,8 +12,7 @@ import "swiper/css/scrollbar";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FiMapPin } from "react-icons/fi";
 import { GrNext } from "react-icons/gr";
-
-function App() {
+const Home = () => {
   return (
     <>
       <div>
@@ -111,7 +108,7 @@ function App() {
               >
                 <SwiperSlide>
                   <div className=" mb-10 flex items-center justify-center">
-                    <a href="">
+                    <a href="/detail">
                       <img
                         className="rounded-2xl"
                         src="/assets/image/submenu/image 17.png"
@@ -146,12 +143,12 @@ function App() {
               </Swiper>
               <style>
                 {`
-          .swiper-pagination-bullet-active {
-            background: #000000; 
-            border-radius: 40px;
-            width: 30px;
-          }
-        `}
+              .swiper-pagination-bullet-active {
+                background: #000000; 
+                border-radius: 40px;
+                width: 30px;
+              }
+            `}
               </style>
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
                 {/* Add Tailwind CSS classes for the pagination position */}
@@ -521,60 +518,13 @@ function App() {
                 </SwiperSlide>
               </Swiper>
             </div>
-            <section
-              id="footer"
-              className="mt-10 h-[600px] md:h-[400px] px-4 md:px-10 w-full bg-darkPurple text-white"
-            >
-              <div className="md:flex pt-16  justify-between">
-                <div className="space-y-4">
-                  <div>
-                    <img src="/assets/image/logo2.png" alt="" />
-                  </div>
-                  <div>
-                    <h1>"Tagline Company"</h1>
-                  </div>
-                  <div className="flex space-x-4">
-                    <img src="/assets/image/socmed/Group 213.png" alt="" />
-                    <img src="/assets/image/socmed/Group 214.png" alt="" />
-                    <img src="/assets/image/socmed/Group 215.png" alt="" />
-                  </div>
-                </div>
 
-                <div className="flex space-x-8 md:mt-0 mt-4">
-                  <div className="grid grid-rows-1 space-y-2">
-                    <a href="" className="mb-4 font-bold">
-                      Lorem Ipsum
-                    </a>
-                    <a href="">Lorem Ipsum</a>
-                    <a href="">Lorem Ipsum</a>
-                    <a href="">Lorem Ipsum</a>
-                    <a href="">Lorem Ipsum</a>
-                    <a href="">Lorem Ipsum</a>
-                  </div>
-                  <div className="grid grid-rows-1 space-y-2">
-                    <a href="" className="mb-4 font-bold">
-                      Lorem Ipsum
-                    </a>
-                    <a href="">Lorem Ipsum</a>
-                    <a href="">Lorem Ipsum</a>
-                    <a href="">Lorem Ipsum</a>
-                    <a href="">Lorem Ipsum</a>
-                    <a href="">Lorem Ipsum</a>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <hr className="my-8 w-full border-b-primary" />
-              </div>
-              <div className="text-center mb-10">
-                Copyright 2023 Depublic. All Right Reserved
-              </div>
-            </section>
+            <Footer />
           </section>
         </main>
       </div>
     </>
   );
-}
+};
 
-export default App;
+export default Home;

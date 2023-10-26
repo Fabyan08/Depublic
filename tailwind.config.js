@@ -14,6 +14,7 @@ export default {
         primary: "#9B51E0",
         second: "#FDF9F0",
         third: "#C4C4C4",
+        darkPurple: "#360146"
       },
     },
   },
