@@ -2,7 +2,7 @@ import Nav from "../Components/Nav";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import Footer from "../Components/Footer";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Link } from "react-router-dom";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -67,7 +67,7 @@ const Home = () => {
                     src="/assets/image/submenu/Frame 9471.png"
                     alt=""
                   />
-                  <h1>Ticket</h1>
+                  <Link to="/ticket">Ticket</Link>
                 </div>
                 <div>
                   <img
@@ -163,7 +163,7 @@ const Home = () => {
                     <GrNext />
                   </h1>
                   <h1>
-                    <a href="">See All</a>
+                    <Link to="/ticket">See All</Link>
                   </h1>
                 </div>
               </div>
