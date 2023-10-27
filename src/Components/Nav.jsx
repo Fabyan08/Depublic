@@ -10,12 +10,12 @@ const Nav = () => {
             </Link>
           </div>
           <div className="space-x-3 font-bold">
-            <button className="border-[1px] text-primary border-primary rounded-xl px-[30px] py-[10px]">
+            <Link to="/signin" className="border-[1px] text-primary border-primary rounded-xl px-[30px] py-[10px]">
               Sign In
-            </button>
-            <button className="bg-primary text-zinc-100 rounded-xl px-[30px] py-[10px]">
-              Sign In
-            </button>
+            </Link>
+            <Link to="/signup" className="bg-primary text-zinc-100 rounded-xl px-[30px] py-[10px]">
+              Sign Up
+            </Link>
           </div>
         </nav>
       </div>
