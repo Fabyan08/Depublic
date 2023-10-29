@@ -8,6 +8,12 @@ import Signup from "./Pages/Auth/Signup.jsx";
 import Signin from "./Pages/Auth/Signin.jsx";
 import Ticket from "./Pages/Ticket";
 
+import { gapi } from "gapi-script";
+const clientId =
+  "499745642203-gitmi6l7apdog86ibqv6aabmifnrj2na.apps.googleusercontent.com";
+
+  
+
 const router = createBrowserRouter([
   {
     path: "/",

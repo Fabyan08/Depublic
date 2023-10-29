@@ -1,8 +1,26 @@
 import { Link } from "react-router-dom";
 import { ImCross } from "react-icons/im";
+import { auth } from "../../Services/Firebase.auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+// import { data } from "autoprefixer";
+import { useNavigate } from "react-router-dom";
+
 const Signup = () => {
+  const history = useNavigate();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    createUserWithEmailAndPassword(auth, email, password).then((data) => {
+      console.log(data, "authData");
+      history("/home");
+    });
+  };
+
   return (
     <>
+    
       <header className="w-full z-20 absolute flex items-center justify-center mx-auto ">
         <div className="fixed top-0 z-10 min-w-full px-2 text-blue-500 h-[100px] w-[100%] shadow-xl bg-white">
           <nav className="flex items-center max-w-xl pt-3 justify-between mx-auto ">
@@ -23,6 +41,7 @@ const Signup = () => {
             </div>
           </div>
         </div>
+
         <div className="relative">
           <div className="absolute right-4 mt-14 z-0">
             <img src="/assets/icon/rounded1.png" alt="" />
@@ -35,19 +54,25 @@ const Signup = () => {
           </div>
 
           <div className="pt-10 px-4 relative">
-            <form action="" className="space-y-8">
+            <form
+              action=""
+              onSubmit={(e) => handleSubmit(e)}
+              className="space-y-8"
+            >
               <input
-                type="text"
-                placeholder="Username"
+                type="email"
+                placeholder="Email"
+                name="email"
                 className="border-b-slate-200 w-full border-b-2 focus:outline-none py-3 text-slate-400 bg-transparent"
               />
-              <input
+              {/* <input
                 type="text"
                 placeholder="Phone Number"
                 className="border-b-slate-200 w-full border-b-2 focus:outline-none py-3 text-slate-400 bg-transparent"
-              />
+              /> */}
               <input
-                type="text"
+                type="password"
+                name="password"
                 placeholder="Password"
                 className="border-b-slate-200 w-full border-b-2 focus:outline-none py-3 text-slate-400 bg-transparent"
               />

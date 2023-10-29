@@ -2,7 +2,11 @@ import Nav from "../Components/Nav";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import Footer from "../Components/Footer";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,7 +16,34 @@ import "swiper/css/scrollbar";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FiMapPin } from "react-icons/fi";
 import { GrNext } from "react-icons/gr";
+import { auth } from "../Services/Firebase.auth";
+import { signOut } from "firebase/auth";
+
 const Home = () => {
+  // const [user, setUser] = useState(null);
+  // const { user } = useParams();
+  const location = useLocation();
+
+  const user = location.state && location.state.user;
+  const [name, setName] = useState("");
+  useEffect(() => {
+    const storedName = localStorage.getItem("name");
+    if (storedName) {
+      setName(storedName);
+    }
+  }, []);
+
+  const history = useNavigate();
+
+  const handleClick = () => {
+    signOut(auth).then(() => {
+      (val) => {
+        console.log(val), "val";
+        history("/");
+      };
+    });
+  };
+
   return (
     <>
       <div>
@@ -48,7 +79,14 @@ const Home = () => {
                   </div>{" "}
                 </form>
               </div>
+
               <div className="mt-40  px-8 pb-20 space-y-20 md:space-y-10  font-semibold t">
+                <button
+                  onClick={handleClick}
+                  className="bg-primary text-white p-2 rounded-lg shadow-sm"
+                >
+                  SIGN OUT
+                </button>
                 <div className="text-slate-900 absolute md:relative font-semibold text-4xl w-96 ">
                   <h1>Tagline Hero Section</h1>
                 </div>
@@ -59,6 +97,7 @@ const Home = () => {
                   Download Aplikasi
                 </button>
               </div>
+
               <div className="flex text-black text-center items-center justify-center mx-10 space-x-2 md:space-x-10 rounded-xl absolute shadow-lg mt-40 md:mt-20  bg-white w-80 md:w-fit px-5  h-32 md:h-40">
                 {/* <div className=" ">TES</div> */}
                 <div>
@@ -67,6 +106,7 @@ const Home = () => {
                     src="/assets/image/submenu/Frame 9471.png"
                     alt=""
                   />
+
                   <Link to="/ticket">Ticket</Link>
                 </div>
                 <div>
@@ -154,7 +194,15 @@ const Home = () => {
                 {/* Add Tailwind CSS classes for the pagination position */}
               </div>
             </div>
+            <h1>TESS</h1>
 
+            {/* {user && ( */}
+            <div className="absolute z-[9999999999999999999999]">
+              {/* <h1>TESSS</h1> */}
+              {/* <img src={user.picture} alt="" /> */}
+              <h3>{name}</h3>
+            </div>
+            {/* )} */}
             <div className="mt-20 px-10 font-bold">
               <div className="flex justify-between">
                 <h1>Upcoming Event</h1>
